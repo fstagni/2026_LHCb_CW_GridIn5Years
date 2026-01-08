@@ -150,6 +150,9 @@ title: grid_next
 
 # More concretely
 
+### Where are we going to simulate and process events, and where to store them?
+
+
 ---
 layout: top-title
 color: gray-light
@@ -165,15 +168,16 @@ title: Base
 
 - Clearly, there will be no revolutions, but a steady evolution
 - We are active within WLCG, from which we get and will still get most of the resorces
+
 - **Processing**: the word-of-these-days is *"Heterogeneity"*
 - **Storage**: ~same, but more
 - **DIRAC**: the **X** is here
 
 
 ---
-layout: top-title
+layout: top-title-two-cols
 color: gray-light
-align: c
+align: c-lm-lm
 title: WLCG_TR
 ---
 
@@ -181,9 +185,20 @@ title: WLCG_TR
 
 # The WLCG Technical Roadmap
 
-:: content ::
+:: left ::
 
-> a consensus-driven document of the major gaps in functionality or scale in the building blocks of WLCG between now and HL-LHC and the plans to bridge those gaps. 
+The roadmap is being written down.
+
+> ...a consensus-driven document of the major gaps in functionality or scale in the building blocks of WLCG between now and HL-LHC and the plans to bridge those gaps. 
+
+Built through a series of Open Technical Forums and by an experts' committee (not "just words").
+
+<Admonition title="For LHCb" color="red-light" width="400px">
+We have been giving our inputs to most of the chapters, and will continue to do so.
+</Admonition>
+
+
+:: right ::
 
 Chapters:
 
@@ -243,8 +258,8 @@ title: sw-and-GPUs
     - We do not fully know how to balance the CPU/GPU loads.
     - **It means, IMHO, that heterogeneous nodes a-la HPCs will actually be welcome**
     - Clearly, the processing efficiency will need to be calculated differently wrt to what we do now.
-- **Training on ML** is instead a rather "different beast". On one side, it has the chance of yielding higher GPU efficiency, but:
-    - it is unclear if we'll even need to run ML "on the Grid" (how often do we need to re-train?)
+- **ML for Training and Inference** is instead a rather "different beast". On one side, it has the chance of yielding higher GPU efficiency, but:
+    - it is unclear if we'll even need to run ML "on the Grid" (how often do we need to re-train? and inference?)
     - at first it does not seem to fit in our model of jobs-with-inputs (which is of course everyone's model)
 
 ---
@@ -264,9 +279,9 @@ Up to now, all ML training and inference have been done outside of the Grid. Wil
 
 A topic that needs study.
 
-At first it does not seem to fit in our model of jobs-with-inputs (which is of course everyone's model). Still, maybe (?) ML training scripts can be wrapped as batch jobs just like we do, and inputs read via the usual protocols. I suspect the issues would come:
+At first it does not seem to fit in our model of jobs-with-inputs (which is of course everyone's model). Still, maybe (?) ML scripts can be wrapped as batch jobs just like we do, and inputs read via the usual protocols. I suspect the issues would come:
 - Because of the scale of inputs
-- GPU nodes interconnection which is something that happens for ML training but never for us (e.g. we do not use MPI...)
+- GPU nodes interconnection which is something that happens for ML but never for us (e.g. we do not use MPI...)
 
 
 - IAAS
@@ -275,6 +290,31 @@ At first it does not seem to fit in our model of jobs-with-inputs (which is of c
 
 - check SONIC for inference : https://indico.cern.ch/event/1526077/contributions/6773823/attachments/3186741/5670548/SONIC%20-%20WLCG%20Workshop%20Dec'25-2.pdf
   - trained model resides on CVMFS
+
+
+---
+layout: top-title
+color: gray-light
+align: c
+title: GPUsGrid
+---
+
+:: title ::
+
+# GPUs and the Grid
+
+:: content ::
+
+Quoting from conclusions of Heterogeneous Architecture WS
+
+while GPU acceleration is a vital R&D area across all major experiment workflows, no experiment is yet in a position to request or accept formal pledges of GPU resources from WLCG federations. 
+ 		> 	..defining firm resource needs requires the completion of several prerequisites, such as the full integration of production workflows - that won’t be finalized before one or two years before data taking -  into the benchmarking suite and clearer finalization of computing models. Progress in these areas is foreseen and actively driven between now and the start of Run 4
+
+ Do experiments require and federations need to provide specialized ML training facilities (the use of which is seen to be periodic) or can HPC allocations, university clusters, national platforms fulfill these needs?
+
+
+The different GPU provisioning models (“traditional” or IaaS) were not seen as contradictory
+	    - WLCG is effectively open (in theory, and in this first approximation) to "deviate" from the "traditional" grid model and offer support for IaaS model.
 
 
 ---
@@ -334,7 +374,7 @@ In the context of DiracX, LHCb is working on:
 
 - A realistic **slot description for heterogeneous architectures**
 - An advanced jobs match-making
-- "Solving" the general case of **whole node scheduling**.
+- "Solving" the general case of **whole node scheduling**: whole-node scheduling and benchmarking seem to be the best way forward.
 
 
 ---
@@ -350,6 +390,8 @@ title: Storage
 
 :: content ::
 
+- Data Lakes? Reservoir?
+- Reduced strict data locality for jobs?
 - We rely on FT3 and XRootD, and we steer everything through Dirac(X)
 
 ---
@@ -384,6 +426,56 @@ title: Security
 - tokens, tokens
 - "Users will be the last to know"
   - no more certificates when?
+
+---
+layout: top-title
+color: gray-light
+align: c
+title: AI
+---
+
+:: title ::
+
+# AI for operations?
+
+:: content ::
+
+For predictive monitoring, anomaly detection, and automated incident response.
+
+There are several initiatives, but (my very personal take is) that somehow, for the moment, they "do not (yet) look serious". -- CERN initiatives?
+
+
+---
+layout: top-title
+color: gray-light
+align: c
+title: Green
+---
+
+:: title ::
+
+# Green computing
+
+:: content ::
+
+
+
+
+---
+layout: top-title
+color: gray-light
+align: c
+title: DPA-Computing
+---
+
+:: title ::
+
+# DPA-WP2 and DiracX
+
+:: content ::
+
+
+ DPA-WP2 activities, websites, and possible merge
 
 
 
