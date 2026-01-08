@@ -1,0 +1,29 @@
+{
+  "name": "2026_LHCb_CW_GridIn5Years",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "slidev build --download",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fstagni/2026_LHCb_CW_GridIn5Years.git"
+  },
+  "keywords": [
+    "LHCb",
+    "WLCG",
+    "Heterogeneous",
+    "Computing"
+  ],
+  "author": "Federico Stagni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fstagni/2026_LHCb_CW_GridIn5Years/issues"
+  },
+  "homepage": "https://github.com/fstagni/2026_LHCb_CW_GridIn5Years/readme",
+  "description": "",
+  "dependencies": {
+    "slidev-theme-neversink": "^0.4.0"
+  }
+}
