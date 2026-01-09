@@ -191,7 +191,7 @@ The roadmap is being written down.
 
 > ...a consensus-driven document of the major gaps in functionality or scale in the building blocks of WLCG between now and HL-LHC and the plans to bridge those gaps. 
 
-Built through a series of Open Technical Forums and by an experts' committee (not "just words").
+Will be completed by this summer. Built through a series of Open Technical Forums and by an experts' committee (not "just words").
 
 <Admonition title="For LHCb" color="red-light" width="400px">
 We have been giving our inputs to most of the chapters, and will continue to do so.
@@ -390,9 +390,16 @@ title: Storage
 
 :: content ::
 
-- Data Lakes? Reservoir?
-- Reduced strict data locality for jobs?
+<Admonition title="buzzwords alert" color="teal-light" width="600px">
+You might have heard about "data lakes", "data reservoir", "data oceans". Really, these means "less, but bigger data centers for the other WLCG friends".
+</Admonition>
+
+Effectively, for LHCb: **more of the same, and better used**
+
 - We rely on FT3 and XRootD, and we steer everything through Dirac(X)
+- Our computing model (as you heard before) may need to change
+- Need to seriously look at the IOPS and throughput, also internally to sites.
+- Tokens will at some point be used for accessing the data (or maybe pre-signed URLs)
 
 ---
 layout: top-title
@@ -407,7 +414,11 @@ title: Network
 
 :: content ::
 
-- Usually "hidden"
+One of the main pillars from which WLCG is built -- usually "hidden"
+
+![](/public/images/networking.png)
+
+Will still be "hidden", hopefully!
 
 
 ---
@@ -442,7 +453,10 @@ title: AI
 
 For predictive monitoring, anomaly detection, and automated incident response.
 
-There are several initiatives, but (my very personal take is) that somehow, for the moment, they "do not (yet) look serious". -- CERN initiatives?
+There are several initiatives, and my very **personal take** is that:
+- for the moment, they "do not (yet) look viable".
+- the potential is certainly there: "operational intelligence" looks less abstract now
+- skimming through the (long) list of abstracts presented [for the AI RCS Strategy Workshop](https://indico.cern.ch/event/1566094/timetable/) there are several on the same tone
 
 
 ---
@@ -458,7 +472,13 @@ title: Green
 
 :: content ::
 
+For the Grid, this means roughly "let's send jobs where the carbon footprint is lower".
 
+This is mostly determined by how green is the electricity used for running the data center. 
+
+WLCG dedicated a [WLCG Environmental Sustainability Workshop](https://indico.cern.ch/event/1450885/timetable/) to the topic in December 2024.
+
+EGI has founded the [GreenDIGIT project](https://greendigit-project.eu) for a few years now [](/public/images/cropped-GD_logo.png)
 
 
 ---
@@ -493,10 +513,7 @@ title: credits/people
     </div>
     <div class="grid-item col-span-2">
         Christophe Haen <i>CERN</i><br/>
-        Alexandre Boyer <i>CERN</i><br/>
         Concezio Bozzi <i>INFN Ferrara</i><br/>
-        Ben Couturier <i>CERN</i><br/>
-        Jan Van Eldik <i>CERN</i><br/>
     </div>
 </div>
 
