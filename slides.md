@@ -137,9 +137,29 @@ title: predictions-Storage
 
 :: left ::
 
+<div class="relative">
+  <img src="/public/images/disk.png" class="w-full" />
+
+  <div class="absolute top-0 left-0 text-xs text-gray-500">
+    Disk
+  </div>
+</div>
+
+<div class="relative">
+  <img src="/public/images/tape.png" class="w-full" />
+
+  <div class="absolute top-0 left-0 text-xs text-gray-500">
+    Tape
+  </div>
+</div>
 
 :: right ::
 
+The plots here assume that nothing will change in our computing model
+
+<Admonition title="Key takeaway" color="teal-light" width="400px">
+We need to change the computing model!
+</Admonition>
 
 
 ---
@@ -260,7 +280,9 @@ title: sw-and-GPUs
     - Clearly, the processing efficiency will need to be calculated differently wrt to what we do now.
 - **ML for Training and Inference** is instead a rather "different beast". On one side, it has the chance of yielding higher GPU efficiency, but:
     - it is unclear if we'll even need to run ML "on the Grid" (how often do we need to re-train? and inference?)
-    - at first it does not seem to fit in our model of jobs-with-inputs (which is of course everyone's model)
+    - it does not fit in our model of jobs-with-inputs (which is of course everyone's model)
+      - NB: I am not talking here about ML training done on a single GPU with a limited dataset 
+
 
 ---
 layout: top-title
@@ -277,19 +299,32 @@ title: ML
 
 Up to now, all ML training and inference have been done outside of the Grid. Will we need, at some point, to use it?
 
-A topic that needs study.
+**A topic that needs study.**
 
-At first it does not seem to fit in our model of jobs-with-inputs (which is of course everyone's model). Still, maybe (?) ML scripts can be wrapped as batch jobs just like we do, and inputs read via the usual protocols. I suspect the issues would come:
+Maybe (?) ML scripts can be wrapped as batch jobs just like we do, and inputs read via the usual protocols. I suspect the issues would come:
 - Because of the scale of inputs
 - GPU nodes interconnection which is something that happens for ML but never for us (e.g. we do not use MPI...)
+- The Grid is about... Grid (computing elements, queues, batch etc.), not about IAAS (the public clouds)
 
+Still:
+- CERN is working on a [ML infrastructure](https://indico.cern.ch/event/1526077/contributions/6796408/attachments/3186401/5669422/WLCG%20Workshop%20Dec%2025_%20CERN%20ML%20Infra.pdf)
 
-- IAAS
+---
+layout: top-title
+color: gray-light
+align: c
+title: Sonic
+---
 
-- CERN ML infrastructure: https://indico.cern.ch/event/1526077/contributions/6796408/attachments/3186401/5669422/WLCG%20Workshop%20Dec%2025_%20CERN%20ML%20Infra.pdf
+:: title ::
 
-- check SONIC for inference : https://indico.cern.ch/event/1526077/contributions/6773823/attachments/3186741/5670548/SONIC%20-%20WLCG%20Workshop%20Dec'25-2.pdf
-  - trained model resides on CVMFS
+# SONIC (another aside)
+
+:: content ::
+
+ML is not only "training" but also "inference". SONIC is a [GPU inference as-a-service](https://indico.cern.ch/event/1526077/contributions/6773823/attachments/3186741/567058/SONIC%20-%20WLCG%20Workshop%20Dec'25-2.pdf), developed by CMS, ATLAS, IceCube, DUNE, LIGO
+
+![](/public/images/inference_as_a_service_ATLAS.png)
 
 
 ---
@@ -492,11 +527,9 @@ title: credits/people
         <strong>Colleagues that helped in putting these slides together</strong><br>
     </div>
     <div class="grid-item col-span-2">
-        Christophe Haen <i>CERN</i><br/>
-        Alexandre Boyer <i>CERN</i><br/>
         Concezio Bozzi <i>INFN Ferrara</i><br/>
         Ben Couturier <i>CERN</i><br/>
-        Jan Van Eldik <i>CERN</i><br/>
+        Christophe Haen <i>CERN</i><br/>
     </div>
 </div>
 
@@ -591,3 +624,18 @@ What if we could buy from clouds the resources we need (those not pledged/guaran
 --> in order to save money, the WMS (DiracX) would need to implement economic models (to keep the costs down).
 
 Not very different, conceptually, from implementing green computing models.
+
+
+
+---
+layout: top-title
+color: gray-light
+align: c
+title: codefor-GPUs
+---
+
+:: title ::
+
+# Codes for GPUs
+
+:: content ::
