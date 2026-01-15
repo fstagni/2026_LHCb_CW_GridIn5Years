@@ -232,7 +232,13 @@ Chapters:
 - New Architectures and Infrastructures
 - Sustainability
 
+---
+layout: section
+color: green
+title: processing
+---
 
+## On processing
 
 ---
 layout: top-title
@@ -413,6 +419,14 @@ In the context of DiracX, LHCb is working on:
 
 
 ---
+layout: section
+color: green
+title: on-storage
+---
+
+## On storage
+
+---
 layout: top-title
 color: gray-light
 align: c
@@ -424,6 +438,16 @@ title: Storage
 # Storage and transfers in the next 5 years
 
 :: content ::
+
+basically for storage, we don't expect any dramatic changes. The technology should be roughly the same, we will just get a few more PB of it. 
+However, we will have to use it a lot better
+
+our computing model may need to change (what we store, do we park on tape, etc), and we need to seriously look into the iops and throughput side of things, not only from the grid transfer point of view like we have done with previous DataChallenges, but also internal to sites. Fortunately and after quite some push, WLCG realized tht and starting looking into it. We need to do our share and provide measurements and estimates of all these
+
+from the pure technical side, there's the auth aspect (tokens to say the F word) that may impact users' workflow 
+
+
+
 
 - Data Lakes? Reservoir?
 - Reduced strict data locality for jobs?
@@ -458,9 +482,11 @@ title: Security
 
 :: content ::
 
-- tokens, tokens
-- "Users will be the last to know"
-  - no more certificates when?
+The [WLCG Token Transition Timeline](https://zenodo.org/records/7014668) states that:
+
+![](/public/images/token_timeline.png)
+
+Given that M.9 was not reached (and we are quite far from it), M.10 will be delayed accordingly. 
 
 ---
 layout: top-title
@@ -477,7 +503,7 @@ title: AI
 
 For predictive monitoring, anomaly detection, and automated incident response.
 
-There are several initiatives, but (my very personal take is) that somehow, for the moment, they "do not (yet) look serious". -- CERN initiatives?
+There are several initiatives, but (my very personal take is) that somehow, for the moment, they "do not (yet) look serious".
 
 
 ---
