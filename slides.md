@@ -240,37 +240,6 @@ title: processing
 
 ## On processing
 
-
-
----
-layout: top-title-two-cols
-color: gray-light
-align: c-lm-lm
-title: offline
-columns: is-7
----
-
-:: title ::
-
-# Offline, nowadays
-
-:: left ::
-
-![](/public/images/offline.png)
-
-...but offline, everything is on CPUs.
-
-:: right ::
-
-- WLCG computing resources (HTC) that are pledging to LHCb, plus a small fraction that is exploited opportunistically
-- HPCs, opportunistically
-- LHCb's HLT2 farm (CPUs)
-  - ...HLT1 GPUs, eventually?
-
-With the exception of few `arm64` queues from WLCG sites, all of them are `amd64` CPUs, with "enough" RAM/Core.
-
-
-
 ---
 layout: top-title
 color: gray-light
@@ -286,14 +255,12 @@ title: Heterogeneity
 
 WLCG has been (and largely still is) about connecting "sites" with **vastly homogeneous architectures**: right now `x86_64` (`amd64`) **CPUs**.
 
-Experiments like LHCb created a collection of highly specialized software for such architecture.
-
 Nowadays LHCb, "like everyone", is looking for SW speedups, also exploring "heterogeneous" hardware.
 
 Several questions:
-- Which non-`amd64` PUs is LHCb *actually* exploring? and how far from *actually using* them? 
-- Can WLCG help? (or, even before, need to care about it)
+- What will we get from WLCG?
 - Which **new problems** will we (LHCb, WLCG) face?
+- ML is used in several ways, does it fit, and how, the Grid model?
 
 Still: **heterogeneous architectures are an opportunity**.
 
@@ -302,7 +269,7 @@ layout: top-title-two-cols
 color: gray-light
 align: c-lm-lm
 title: ARM
-columns: is-7
+columns: is-5
 ---
 
 :: title ::
@@ -327,19 +294,6 @@ columns: is-7
   - If asked again, we can't stop this anymore.
 
 
-
----
-layout: top-title
-color: gray-light
-align: c
-title: sw-and-GPUs
----
-
-:: title ::
-
-# Simulations and heterogeneity of PUs
-
-:: content ::
 
 ---
 layout: top-title
@@ -402,7 +356,7 @@ title: Sonic
 
 :: content ::
 
-ML is not only "training" but also "inference". SONIC is a [GPU inference as-a-service](https://indico.cern.ch/event/1526077/contributions/6773823/attachments/3186741/567058/SONIC%20-%20WLCG%20Workshop%20Dec'25-2.pdf), developed by CMS, ATLAS, IceCube, DUNE, LIGO
+SONIC is a [GPU inference as-a-service](https://indico.cern.ch/event/1526077/contributions/6773823/attachments/3186741/567058/SONIC%20-%20WLCG%20Workshop%20Dec'25-2.pdf), developed by CMS, ATLAS, IceCube, DUNE, LIGO
 
 ![](/public/images/inference_as_a_service_ATLAS.png)
 
@@ -422,14 +376,14 @@ title: GPUsGrid
 
 Quoting from conclusions of Heterogeneous Architecture WS
 
-while GPU acceleration is a vital R&D area across all major experiment workflows, no experiment is yet in a position to request or accept formal pledges of GPU resources from WLCG federations. 
- 		> 	..defining firm resource needs requires the completion of several prerequisites, such as the full integration of production workflows - that won’t be finalized before one or two years before data taking -  into the benchmarking suite and clearer finalization of computing models. Progress in these areas is foreseen and actively driven between now and the start of Run 4
+> while GPU acceleration is a vital R&D area across all major experiment workflows, no experiment is yet in a position to request or accept formal pledges of GPU resources from WLCG federations. 
 
- Do experiments require and federations need to provide specialized ML training facilities (the use of which is seen to be periodic) or can HPC allocations, university clusters, national platforms fulfill these needs?
+> 	..defining firm resource needs requires the completion of several prerequisites, such as the full integration of production workflows - that won’t be finalized before one or two years before data taking -  into the benchmarking suite and clearer finalization of computing models. Progress in these areas is foreseen and actively driven between now and the start of Run 4
+
+>  Do experiments require and federations need to provide specialized ML training facilities (the use of which is seen to be periodic) or can HPC allocations, university clusters, national platforms fulfill these needs?
 
 
-The different GPU provisioning models (“traditional” or IaaS) were not seen as contradictory
-	    - WLCG is effectively open (in theory, and in this first approximation) to "deviate" from the "traditional" grid model and offer support for IaaS model.
+> The different GPU provisioning models (“traditional” or IaaS) were not seen as contradictory
 
 
 ---
@@ -489,7 +443,7 @@ In the context of DiracX, LHCb is working on:
 
 - A realistic **slot description for heterogeneous architectures**
 - An advanced jobs match-making
-- "Solving" the general case of **whole node scheduling**: whole-node scheduling and benchmarking seem to be the best way forward.
+- "Solving" the general case of **whole node scheduling**: whole-node scheduling and benchmarking seems to be the best way forward.
 
 
 ---
@@ -544,23 +498,46 @@ title: Network
 
 
 ---
-layout: top-title
+layout: top-title-two-cols
 color: gray-light
-align: c
-title: Security
+align: c-lm-lm
+title: security
+columns: is-8
 ---
 
 :: title ::
 
 # Security and AuthN and AuthZ
 
-:: content ::
+:: left ::
 
 The [WLCG Token Transition Timeline](https://zenodo.org/records/7014668) states that:
 
 ![](/public/images/token_timeline.png)
 
 Given that M.9 was not reached (and we are quite far from it), M.10 will be delayed accordingly. 
+
+:: right ::
+
+Note: DiracX uses **only** tokens:
+
+```sh
+bash-5.1$ dirac-diracx-whoami
+{
+  "sub": "lhcb:42a1e483-d51f-46ec-858b-24c70a11812d",
+  "vo": "lhcb",
+  "dirac_group": "lhcb_user",
+  "policies": {},
+  "properties": [
+    "NormalUser",
+    "PrivateLimitedDelegation"
+  ],
+  "preferred_username": "fstagni"
+}
+```
+
+But the tokens used inside DiracX and those used outside ("in the Grid") are not the same.
+
 
 ---
 layout: top-title
