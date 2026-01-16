@@ -240,6 +240,37 @@ title: processing
 
 ## On processing
 
+
+
+---
+layout: top-title-two-cols
+color: gray-light
+align: c-lm-lm
+title: offline
+columns: is-7
+---
+
+:: title ::
+
+# Offline, nowadays
+
+:: left ::
+
+![](/public/images/offline.png)
+
+...but offline, everything is on CPUs.
+
+:: right ::
+
+- WLCG computing resources (HTC) that are pledging to LHCb, plus a small fraction that is exploited opportunistically
+- HPCs, opportunistically
+- LHCb's HLT2 farm (CPUs)
+  - ...HLT1 GPUs, eventually?
+
+With the exception of few `arm64` queues from WLCG sites, all of them are `amd64` CPUs, with "enough" RAM/Core.
+
+
+
 ---
 layout: top-title
 color: gray-light
@@ -266,6 +297,49 @@ Several questions:
 
 Still: **heterogeneous architectures are an opportunity**.
 
+---
+layout: top-title-two-cols
+color: gray-light
+align: c-lm-lm
+title: ARM
+columns: is-7
+---
+
+:: title ::
+
+# **Simulation**: ARM64, "the easy one"
+
+:: left ::
+
+![](/public/images/ARM_DPopov_090925.png)
+
+![](/public/images/Gauss_ARM.png)
+
+
+:: right ::
+
+- The LHCb simulation software (Gauss) is ready for using ARM64 cores.
+- There is still no sustained production load.
+- LHCb started exploiting (few) ARM queues, still in an opportunistic way.
+- Dirac(X) support is basically *done* (minor caveats).
+- LHCb stopped WLCG from pledging `ARM64` queues more than a year ago, but the other WLCG experiments are ready for it. 
+  - Few sites (including CERN and GridKA) bought ARM processors, but stopped because they are not pleadge-able.
+  - If asked again, we can't stop this anymore.
+
+
+
+---
+layout: top-title
+color: gray-light
+align: c
+title: sw-and-GPUs
+---
+
+:: title ::
+
+# Simulations and heterogeneity of PUs
+
+:: content ::
 
 ---
 layout: top-title
