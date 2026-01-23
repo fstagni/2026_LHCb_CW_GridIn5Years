@@ -234,7 +234,7 @@ We have been giving our inputs to most of the chapters, and will continue to do 
 
 ---
 layout: section
-color: green
+color: cyan-light
 title: processing
 ---
 
@@ -462,11 +462,11 @@ In the context of DiracX, LHCb is working on:
 
 ---
 layout: section
-color: green
+color: cyan-light
 title: on-storage
 ---
 
-## On storage
+## On storage, and transfers
 
 ---
 layout: top-title-two-cols
@@ -516,6 +516,14 @@ title: Network
 :: content ::
 
 ![](/public/images/networking.png)
+
+---
+layout: section
+color: cyan-light
+title: Others
+---
+
+## (not) everything else
 
 ---
 layout: top-title-two-cols
@@ -594,6 +602,29 @@ title: Green
 :: content ::
 
 
+---
+layout: top-title
+color: gray-light
+align: c
+title: DiracX
+---
+
+:: title ::
+
+# DiracX in 5 years
+
+:: content ::
+
+... working on it!
+
+Nowadays, DIRAC and DiracX are working together, with DIRAC still doing most of the production activities. Users not noticing (and they shouldn't!)
+
+hackathon last week: very much, not only LHCb
+
+LHCb specificities 
+
+
+
 
 
 ---
@@ -609,8 +640,22 @@ title: DPA-Computing
 
 :: content ::
 
+DPA-WP2 activities, websites, and possible merge
 
- DPA-WP2 activities, websites, and possible merge
+
+---
+layout: top-title
+color: gray-light
+align: c
+title: Summary
+---
+
+:: title ::
+
+# In summary
+
+:: content ::
+
 
 
 
@@ -644,7 +689,7 @@ title: credits/people
 
 ---
 layout: section
-color: cyan-light
+color: cyan
 title: Backup
 ---
 
