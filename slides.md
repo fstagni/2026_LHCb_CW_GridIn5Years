@@ -207,11 +207,11 @@ title: WLCG_TR
 
 :: left ::
 
-The roadmap is being written down.
+The roadmap is being written down, and will ready this year (~June).
 
 > ...a consensus-driven document of the major gaps in functionality or scale in the building blocks of WLCG between now and HL-LHC and the plans to bridge those gaps. 
 
-Built through a series of Open Technical Forums and by an experts' committee (not "just words").
+Built through a series of Open Technical Forums and by an experts' committee.
 
 <Admonition title="For LHCb" color="red-light" width="400px">
 We have been giving our inputs to most of the chapters, and will continue to do so.
@@ -220,7 +220,7 @@ We have been giving our inputs to most of the chapters, and will continue to do 
 
 :: right ::
 
-Chapters:
+**Chapters**:
 
 - Experimental Computing Requirements
 - Facility Evolution
@@ -264,6 +264,8 @@ Several questions:
 
 Still: **heterogeneous architectures are an opportunity**.
 
+For what concerns distributed computing processing in LHCb, simulation is what we look at the most.
+
 ---
 layout: top-title-two-cols
 color: gray-light
@@ -290,8 +292,8 @@ columns: is-5
 - LHCb started exploiting (few) ARM queues, still in an opportunistic way.
 - Dirac(X) support is basically *done* (minor caveats).
 - LHCb stopped WLCG from pledging `ARM64` queues more than a year ago, but the other WLCG experiments are ready for it. 
-  - Few sites (including CERN and GridKA) bought ARM processors, but stopped because they are not pleadge-able.
-  - If asked again, we can't stop this anymore.
+  - Few sites (including CERN and GridKA) bought ARM processors. Them, and others, stopped because they are *not pleadge-able*.
+  - **If asked again, we can't stop this anymore**
 
 
 
@@ -362,17 +364,27 @@ SONIC is a [GPU inference as-a-service](https://indico.cern.ch/event/1526077/con
 
 
 ---
-layout: top-title
+layout: top-title-two-cols
 color: gray-light
-align: c
+align: c-lm-lm
 title: GPUsGrid
+columns: is-5
 ---
 
 :: title ::
 
-# GPUs and the Grid
+# GPUs in the Grid
 
-:: content ::
+:: left ::
+
+**Basically**
+
+- All experiments have been using GPUs outside of WLCG
+- Their usage is not *yet* at the "Grid scale"
+- All experiments are anyway using *opportunistically* resources that include GPUs, like HPC nodes.
+
+:: right ::
+
 
 Quoting from conclusions of Heterogeneous Architecture WS
 
@@ -405,7 +417,7 @@ columns: is-5
 
 :: right ::
 
-Would not be able to fully exploit nodes like this:
+ATM Dirac(X) would not be able to fully exploit nodes like this:
 
 <div class7="relative">
   <img src="/public/images/lumig-overview.svg" class="w-full" />
@@ -414,6 +426,8 @@ Would not be able to fully exploit nodes like this:
     Source: https://docs.lumi-supercomputer.eu/hardware/lumig/
   </div>
 </div>
+
+but we are working on it!
 
 
 
@@ -467,19 +481,23 @@ title: Storage
 
 :: content ::
 
-basically for storage, we don't expect any dramatic changes. The technology should be roughly the same, we will just get a few more PB of it. 
-However, we will have to use it a lot better
+- we don't expect any dramatic changes. The technology should be roughly the same, we will just get a few more PB of it. 
+- We will keep relying on FT3 and XRootD, and steering everything through Dirac(X)
 
-our computing model may need to change (what we store, do we park on tape, etc), and we need to seriously look into the iops and throughput side of things, not only from the grid transfer point of view like we have done with previous DataChallenges, but also internal to sites. Fortunately and after quite some push, WLCG realized tht and starting looking into it. We need to do our share and provide measurements and estimates of all these
+However, we will have to use it a lot better:
 
-from the pure technical side, there's the auth aspect (tokens to say the F word) that may impact users' workflow 
+- our computing model may need to change
+- we need to seriously look into the iops and throughput side of things (also internal to sites). 
+  - WLCG started looking into it.
 
+<div class="relative">
+  <img src="/public/images/chaen_readout_RAL.png" class="w-2/3" />
 
+  <div class="absolute top-0 left-0 text-xs text-gray-500">
+    From Christophe
+  </div>
+</div>
 
-
-- Data Lakes? Reservoir?
-- Reduced strict data locality for jobs?
-- We rely on FT3 and XRootD, and we steer everything through Dirac(X)
 
 ---
 layout: top-title
@@ -605,7 +623,6 @@ title: credits/people
     </div>
     <div class="grid-item col-span-2">
         Concezio Bozzi <i>INFN Ferrara</i><br/>
-        Ben Couturier <i>CERN</i><br/>
         Christophe Haen <i>CERN</i><br/>
     </div>
 </div>
