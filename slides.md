@@ -469,9 +469,9 @@ title: on-storage
 ## On storage
 
 ---
-layout: top-title
+layout: top-title-two-cols
 color: gray-light
-align: c
+align: c-lm-lm
 title: Storage
 ---
 
@@ -479,19 +479,22 @@ title: Storage
 
 # Storage and transfers in the next 5 years
 
-:: content ::
+:: left ::
 
 - we don't expect any dramatic changes. The technology should be roughly the same, we will just get a few more PB of it. 
 - We will keep relying on FT3 and XRootD, and steering everything through Dirac(X)
+- WLCG-steered Data Challenges have been instrumental for stress testing and monitoring improvements. Next one [in 2027](https://indico.cern.ch/event/1604554/contributions/6761292/attachments/3163764/5621963/DC27-Coming%20to%20Network%20Rates-DOMA.pdf).
+
+
+:: right :: 
 
 However, we will have to use it a lot better:
 
 - our computing model may need to change
-- we need to seriously look into the iops and throughput side of things (also internal to sites). 
-  - WLCG started looking into it.
+- we need to seriously look into the iops and throughput side of things (also internal to sites). WLCG started looking into it.
 
 <div class="relative">
-  <img src="/public/images/chaen_readout_RAL.png" class="w-2/3" />
+  <img src="/public/images/chaen_readout_RAL.png" class="w-full" />
 
   <div class="absolute top-0 left-0 text-xs text-gray-500">
     From Christophe
@@ -508,12 +511,11 @@ title: Network
 
 :: title ::
 
-# Network
+# Network (usually "hidden")
 
 :: content ::
 
-- Usually "hidden"
-
+![](/public/images/networking.png)
 
 ---
 layout: top-title-two-cols
@@ -570,7 +572,10 @@ title: AI
 
 :: content ::
 
-For predictive monitoring, anomaly detection, and automated incident response.
+For:
+- predictive monitoring
+- anomaly detection
+- automated incident response.
 
 There are several initiatives, but (my very personal take is) that somehow, for the moment, they "do not (yet) look serious".
 
