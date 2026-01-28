@@ -9,7 +9,9 @@ theme: neversink
 neversink_string: "WLCG, and the LHCb Grid in 5 years" 
 ---
 
-# WLCG, and the LHCb Grid in 5 years
+# WLCG, 
+# and the LHCb Grid
+# in (more or less) 5 years
 
 **Federico Stagni** <Email v="federico.stagni@cern.ch" />
 
@@ -71,7 +73,7 @@ title: grid
 
 :: left ::
 
-**Grid usage in Q3 and Q4**
+**Grid usage in Q3 and Q4 2025**
 
 ![](/public/images/pie_grid_Q34.png)
 
@@ -119,9 +121,9 @@ Simulation is, and will likely stay, the largest consumer of processing cycles o
   </div>
 </div>
 
-When talking about heterogeneous architectures, we can't avoid asking ourselves: where will we be able to run Gauss, the LHCb Simulation SW?
+When talking about distributed computing, we can't avoid asking ourselves: where will we be able to run Gauss? What if the Grid is heterogeneous?
 
-Even if general simulation is **not** a natural candidate for GPUs, as we shall see, they provide better performances for specific cases.
+Even if general (full) simulation is **not** a natural candidate for GPUs, they provide better performances for specific cases.
 
 
 ---
@@ -186,8 +188,9 @@ title: Base
 
 :: content ::
 
-- Clearly, there will be no revolutions, but a steady evolution
-- We are active within WLCG, from which we get and will still get most of the resorces
+Clearly, there will be no revolutions, but a steady evolution.
+
+We are active within WLCG, from which we get and will still get most of the resorces
 
 - **Processing**: the word-of-these-days is *"Heterogeneity"*
 - **Storage**: ~same, but more
@@ -207,7 +210,7 @@ title: WLCG_TR
 
 :: left ::
 
-The roadmap is being written down, and will ready this year (~June).
+The roadmap is being written down, and will be ready this year (~June).
 
 > ...a consensus-driven document of the major gaps in functionality or scale in the building blocks of WLCG between now and HL-LHC and the plans to bridge those gaps. 
 
@@ -271,7 +274,7 @@ layout: top-title-two-cols
 color: gray-light
 align: c-lm-lm
 title: ARM
-columns: is-5
+columns: is-4
 ---
 
 :: title ::
@@ -287,12 +290,12 @@ columns: is-5
 
 :: right ::
 
-- The LHCb simulation software (Gauss) is ready for using ARM64 cores.
+- Gauss can exploit ARM64 cores (also recent versions of DaVinci).
 - There is still no sustained production load.
 - LHCb started exploiting (few) ARM queues, still in an opportunistic way.
 - Dirac(X) support is basically *done* (minor caveats).
 - LHCb stopped WLCG from pledging `ARM64` queues more than a year ago, but the other WLCG experiments are ready for it. 
-  - Few sites (including CERN and GridKA) bought ARM processors. Them, and others, stopped because they are *not pleadge-able*.
+  - Few sites (including CERN and GridKA) bought ARM processors in the past 2 years. Then everyone stopped doing it, also because they are *not pleadge-able*.
   - **If asked again, we can't stop this anymore**
 
 
@@ -312,7 +315,7 @@ title: sw-and-GPUs
 
 - On one side, **for simulations** *LHCb plans to offload certain calculations to GPUs*: **GPUs are treated as accelerators**.
     - We do not fully know how to balance the CPU/GPU loads.
-    - **It means, IMHO, that heterogeneous nodes a-la HPCs will actually be welcome**
+    - **It means that heterogeneous nodes a-la HPCs will actually be welcome**
     - Clearly, the processing efficiency will need to be calculated differently wrt to what we do now.
 - **ML for Training and Inference** is instead a rather "different beast". On one side, it has the chance of yielding higher GPU efficiency, but:
     - it is unclear if we'll even need to run ML "on the Grid" (how often do we need to re-train? and inference?)
@@ -386,14 +389,13 @@ columns: is-5
 :: right ::
 
 
-Quoting from conclusions of Heterogeneous Architecture WS
+Quoting from conclusions from the [WLCG Heterogeneous Architecture WS](https://indico.cern.ch/event/1526077/timetable/):
 
 > while GPU acceleration is a vital R&D area across all major experiment workflows, no experiment is yet in a position to request or accept formal pledges of GPU resources from WLCG federations. 
 
 > 	..defining firm resource needs requires the completion of several prerequisites, such as the full integration of production workflows - that won’t be finalized before one or two years before data taking -  into the benchmarking suite and clearer finalization of computing models. Progress in these areas is foreseen and actively driven between now and the start of Run 4
 
 >  Do experiments require and federations need to provide specialized ML training facilities (the use of which is seen to be periodic) or can HPC allocations, university clusters, national platforms fulfill these needs?
-
 
 > The different GPU provisioning models (“traditional” or IaaS) were not seen as contradictory
 
@@ -481,14 +483,14 @@ title: Storage
 
 :: left ::
 
-- we don't expect any dramatic changes. The technology should be roughly the same, we will just get a few more PB of it. 
-- We will keep relying on FT3 and XRootD, and steering everything through Dirac(X)
+- **We don't expect any dramatic changes.** The technology should be roughly the same, we will just get a few more PB of it. 
+- We will keep relying on FTS3 and XRootD, and steering everything through Dirac(X)
 - WLCG-steered Data Challenges have been instrumental for stress testing and monitoring improvements. Next one [in 2027](https://indico.cern.ch/event/1604554/contributions/6761292/attachments/3163764/5621963/DC27-Coming%20to%20Network%20Rates-DOMA.pdf).
 
 
 :: right :: 
 
-However, we will have to use it a lot better:
+**However, we will have to use it a lot better:**
 
 - our computing model may need to change
 - we need to seriously look into the iops and throughput side of things (also internal to sites). WLCG started looking into it.
@@ -503,19 +505,27 @@ However, we will have to use it a lot better:
 
 
 ---
-layout: top-title
+layout: top-title-two-cols
 color: gray-light
-align: c
+align: c-lm-lm
 title: Network
+columns: is-8
 ---
 
 :: title ::
 
-# Network (usually "hidden")
+# Network (usually "hidden" -- which is good!)
 
-:: content ::
+:: left ::
 
 ![](/public/images/networking.png)
+
+:: right ::
+
+Plot is about WAN. Notable points:
+- the green (lhcb) is still "small", but with a noticeable increase in the past 2 years
+- ATLAS and CMS network usage is "doped" by large amount of transfers happening due to "flexible" computing model
+  - which, we *might* need to employ! (maybe not at the same scale)
 
 ---
 layout: section
@@ -585,7 +595,7 @@ For:
 - anomaly detection
 - automated incident response.
 
-There are several initiatives, but (my very personal take is) that somehow, for the moment, they "do not (yet) look serious".
+There are [several initiatives](https://indico.cern.ch/event/1566094), including the [revival of old ideas](https://indico.cern.ch/event/1566094/timetable/#39-operational-intelligence-fo), but (my very personal take is) that somehow, for the moment, they "do not (yet) look serious" (but *they might well be*, sooner than later).
 
 
 ---
@@ -601,46 +611,15 @@ title: Green
 
 :: content ::
 
+See [this presentation](https://agenda.infn.it/event/45424/contributions/263594/attachments/135881/203832/INFN_Workshop_giordano_27_05_2025.pdf) for a nice summary. Discussed in more details at the [WLCG Environmental Sustainability Workshop](https://indico.cern.ch/event/1450885/timetable/).
 
----
-layout: top-title
-color: gray-light
-align: c
-title: DiracX
----
+Push towards:
+- using the more sustainable resources
+  - e.g. buy and use ARM CPUs, and GPUs (will happen anyway)
+- use the available resources in a more a sustainable way
+  - favoring the greener resources at match-making time (not anytime soon)
 
-:: title ::
-
-# DiracX in 5 years
-
-:: content ::
-
-... working on it!
-
-Nowadays, DIRAC and DiracX are working together, with DIRAC still doing most of the production activities. Users not noticing (and they shouldn't!)
-
-hackathon last week: very much, not only LHCb
-
-LHCb specificities 
-
-
-
-
-
----
-layout: top-title
-color: gray-light
-align: c
-title: DPA-Computing
----
-
-:: title ::
-
-# DPA-WP2 and DiracX
-
-:: content ::
-
-DPA-WP2 activities, websites, and possible merge
+My personal take: WLCG will unlikely impose something on LHCb based purely on pure green computing.
 
 
 ---
@@ -656,14 +635,16 @@ title: Summary
 
 :: content ::
 
-
+- **Processing**: the word-of-these-days is *"Heterogeneity"*
+- **Storage**: ~same, but more
+- **DIRAC**: the **X** is here
 
 
 ---
 layout: credits
 color: navy
 loop: true
-speed: 1.0
+speed: 1.3
 title: credits/people
 ---
 
@@ -768,18 +749,3 @@ What if we could buy from clouds the resources we need (those not pledged/guaran
 --> in order to save money, the WMS (DiracX) would need to implement economic models (to keep the costs down).
 
 Not very different, conceptually, from implementing green computing models.
-
-
-
----
-layout: top-title
-color: gray-light
-align: c
-title: codefor-GPUs
----
-
-:: title ::
-
-# Codes for GPUs
-
-:: content ::
